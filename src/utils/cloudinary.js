@@ -14,7 +14,8 @@ import fs from "fs"
             try {
 
                 if (!localFilePath) return null 
-                  const response = await cloudinary.uploader.upload(localFilePath,{
+                  const response = await cloudinary.uploader.upload
+                  (localFilePath,{
                     resource_type: "auto"
                    }) 
 
@@ -23,7 +24,7 @@ import fs from "fs"
                     return response;
             } catch (error) {
 
-            fn.unlinkSync(localFilePath)
+            fs.unlinkSync(localFilePath)
             return null
             }
         }
